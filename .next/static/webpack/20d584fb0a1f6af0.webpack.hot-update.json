@@ -1,0 +1,1 @@
+{"c":["webpack"],"r":["pages/public-documents"],"m":["./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?absolutePagePath=%2FUsers%2Fjonolan%2Fprojects%2FOMK%2Fomk-website%2Fsrc%2Fpages%2Fpublic-documents.tsx&page=%2Fpublic-documents!","./src/components/ui/DocumentCard.tsx","./src/data/documents.ts","./src/pages/public-documents.tsx"]}
