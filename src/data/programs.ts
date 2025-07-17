@@ -5,6 +5,14 @@ export interface Program {
   detailedDescription: string;
   services: string[];
   impactStatement: string;
+  pillar: string;
+}
+
+export interface ProgramPillar {
+  title: string;
+  description: string;
+  slug: string;
+  programs: Program[];
 }
 
 export const programs: Program[] = [
@@ -20,7 +28,8 @@ export const programs: Program[] = [
       'Internships and apprenticeship partnerships with local employers',
       'Wraparound support services to ensure long-term success'
     ],
-    impactStatement: 'This program bridges the gap between potential and opportunity, unlocking pathways to sustainable, high-wage careers.'
+    impactStatement: 'This program bridges the gap between potential and opportunity, unlocking pathways to sustainable, high-wage careers.',
+    pillar: 'Empowerment Through Education & Opportunity'
   },
   {
     title: 'Veteran Empowerment & Transition Support',
@@ -34,7 +43,8 @@ export const programs: Program[] = [
       'Entrepreneurship and small business launch support',
       'Community-building events to combat isolation'
     ],
-    impactStatement: 'Our goal is to ensure every veteran transitions with dignity, purpose, and a strong support network.'
+    impactStatement: 'Our goal is to ensure every veteran transitions with dignity, purpose, and a strong support network.',
+    pillar: 'Cultural Resilience & Veteran Support'
   },
   {
     title: 'Educational & Cultural Advancement',
@@ -48,7 +58,8 @@ export const programs: Program[] = [
       'College prep and admissions guidance',
       'Hawaiian-focused STEM and STEAM enrichment'
     ],
-    impactStatement: 'By weaving culture into education, we strengthen identity and resilience across generations.'
+    impactStatement: 'By weaving culture into education, we strengthen identity and resilience across generations.',
+    pillar: 'Cultural Resilience & Veteran Support'
   },
   {
     title: 'Financial Literacy & Economic Mobility',
@@ -62,7 +73,8 @@ export const programs: Program[] = [
       'Workshops on small business financing and grant access',
       'Coaching to navigate major financial decisions'
     ],
-    impactStatement: 'Financial empowerment is central to our mission of self-determination for families and communities.'
+    impactStatement: 'Financial empowerment is central to our mission of self-determination for families and communities.',
+    pillar: 'Empowerment Through Education & Opportunity'
   },
   {
     title: 'Community Reinvestment & Technology Equity',
@@ -76,7 +88,8 @@ export const programs: Program[] = [
       'Partnerships with tech companies to bring tools and training to schools',
       'Community labs and learning hubs powered by local volunteers'
     ],
-    impactStatement: 'By promoting technology equity, we ensure no one is left behind in an increasingly digital world.'
+    impactStatement: 'By promoting technology equity, we ensure no one is left behind in an increasingly digital world.',
+    pillar: 'Community Reinvestment & Technology Equity'
   },
   {
     title: 'Scholarships, Grants & Direct Aid',
@@ -90,6 +103,28 @@ export const programs: Program[] = [
       'Microgrants for cultural projects or community improvement',
       'Back-to-school kits, holiday relief, and disaster response funds'
     ],
-    impactStatement: 'Every dollar goes toward dignity, access, and opportunity.'
+    impactStatement: 'Every dollar goes toward dignity, access, and opportunity.',
+    pillar: 'Empowerment Through Education & Opportunity'
   },
+];
+
+export const programPillars: ProgramPillar[] = [
+  {
+    title: 'Empowerment Through Education & Opportunity',
+    description: 'Delivers workforce development, tech training, financial literacy, and scholarship access to build long-term self-sufficiency and economic mobility.',
+    slug: 'empowerment-education-opportunity',
+    programs: programs.filter(p => p.pillar === 'Empowerment Through Education & Opportunity')
+  },
+  {
+    title: 'Cultural Resilience & Veteran Support',
+    description: 'Preserves Native Hawaiian heritage through language and arts, while supporting veterans and their families through transition, healing, and community reintegration.',
+    slug: 'cultural-resilience-veteran-support',
+    programs: programs.filter(p => p.pillar === 'Cultural Resilience & Veteran Support')
+  },
+  {
+    title: 'Community Reinvestment & Technology Equity',
+    description: 'Invests in digital inclusion, infrastructure, and direct aid to uplift underserved communities and expand access to essential resources.',
+    slug: 'community-reinvestment-technology-equity',
+    programs: programs.filter(p => p.pillar === 'Community Reinvestment & Technology Equity')
+  }
 ];

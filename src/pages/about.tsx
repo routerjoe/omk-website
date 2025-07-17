@@ -14,7 +14,7 @@ const About = () => {
         <div className="relative z-10">
           <h1 className="text-4xl font-bold text-plumeriaWhite drop-shadow-lg">About Ohana Mana Koa</h1>
           <p className="mt-4 text-lg text-plumeriaWhite max-w-3xl mx-auto drop-shadow-md">
-            Ohana Mana Koa is a Native Hawaiian–owned and veteran-led 501(c)(3) nonprofit organization dedicated to empowering Native Hawaiian families, veterans, and underserved communities through culturally grounded programs that foster education, economic mobility, and resilience.
+            Ohana Mana Koa is a Native Hawaiian–owned and veteran-led 501(c)(3) nonprofit organization based in Kailua-Kona, Hawai'i. As a Native Hawaiian Organization, we honor our heritage by advancing opportunities in technology, supporting veterans, and investing in the well-being of Native Hawaiian families and underserved communities.
           </p>
         </div>
       </section>
@@ -27,10 +27,13 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="text-left">
               <p className="text-lavaBlack mb-4">
-                Founded on the principles of Aloha and Kuleana, our organization bridges traditional Hawaiian values with modern community needs. We believe in the power of cultural identity to heal, strengthen, and unite our people.
+                Led by a woman of Hawaiian heritage and proud U.S. military veteran, our dual-entity structure includes Ohana Mana Koa, a nonprofit foundation, and Mana Koa Systems, a for-profit, 8(a)-eligible subsidiary. This structure allows us to maximize our impact while maintaining our commitment to community reinvestment.
+              </p>
+              <p className="text-lavaBlack mb-4">
+                Mana Koa Systems supports our mission through three strategic service areas: Digital Transformation & Mission Technology, Operational Support & Logistics, and Agile Acquisition & Resilience. At least 10% of net profits are reinvested into community programs.
               </p>
               <p className="text-lavaBlack">
-                Through our veteran leadership and deep community roots, we create programs that honor our ancestors while building pathways to prosperity for future generations.
+                Guided by the Native Hawaiian value of kuleana, we share our impact transparently through the annual Hoʻokupu Impact Report, ensuring accountability to the communities we serve.
               </p>
             </div>
             <div
@@ -69,6 +72,45 @@ const About = () => {
             <h3 className="text-xl font-bold text-hibiscusRed mb-2">Pono</h3>
             <p className="text-lavaBlack">Righteousness and doing what is morally right</p>
           </div>
+        </div>
+      </section>
+
+      {/* Organizational Structure Section */}
+      <section className="py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-lavaBlack">Our Structure</h2>
+          <div className="w-24 h-1 bg-hibiscusRed mx-auto mt-4"></div>
+        </div>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="bg-lightSand p-8 rounded-lg shadow-lg border-l-4 border-palmGreen">
+            <h3 className="text-2xl font-bold text-palmGreen mb-4">Ohana Mana Koa</h3>
+            <p className="text-lavaBlack mb-4">
+              Our 501(c)(3) nonprofit foundation serves as the heart of our mission, delivering culturally grounded programs that empower Native Hawaiian families, veterans, and underserved communities.
+            </p>
+            <ul className="text-lavaBlack text-sm space-y-2">
+              <li>• Native Hawaiian Organization (NHO) status</li>
+              <li>• Community-focused program delivery</li>
+              <li>• Transparent impact reporting</li>
+              <li>• Cultural preservation and advancement</li>
+            </ul>
+          </div>
+          <div className="bg-lightSand p-8 rounded-lg shadow-lg border-l-4 border-oceanBlue">
+            <h3 className="text-2xl font-bold text-oceanBlue mb-4">Mana Koa Systems</h3>
+            <p className="text-lavaBlack mb-4">
+              Our wholly-owned, 8(a)-eligible subsidiary executes mission-aligned federal contracts, with a minimum of 10% of net profits reinvested into nonprofit programs.
+            </p>
+            <ul className="text-lavaBlack text-sm space-y-2">
+              <li>• Digital Transformation & Mission Technology</li>
+              <li>• Operational Support & Logistics Solutions</li>
+              <li>• Agile Acquisition & Mission Resilience</li>
+              <li>• SBA 8(a) program eligibility</li>
+            </ul>
+          </div>
+        </div>
+        <div className="text-center mt-8">
+          <p className="text-lavaBlack max-w-3xl mx-auto">
+            This dual-entity structure allows us to maximize our impact while maintaining our commitment to transparency through our annual Hoʻokupu Impact Report, which details how funds are spent, who they impact, and how our values are upheld.
+          </p>
         </div>
       </section>
 

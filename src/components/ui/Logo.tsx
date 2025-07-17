@@ -14,10 +14,11 @@ const Logo = ({ variant = 'default' }: LogoProps) => {
       <Image
         src={logoSrc}
         alt={altText}
-        width={variant === 'tagline' ? 200 : 80}
-        height={variant === 'tagline' ? 50 : 80}
+        width={variant === 'tagline' ? 100 : 80}
+        height={variant === 'tagline' ? 25 : 80}
         priority
         className="rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+        style={{ width: 'auto', height: 'auto' }}
       />
     </Link>
   );

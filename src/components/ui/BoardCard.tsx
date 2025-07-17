@@ -12,8 +12,8 @@ const BoardCard = ({ member }: BoardCardProps) => {
         <Image
           src={member.image}
           alt={`Portrait of ${member.name}`}
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: 'cover' }}
         />
       </div>
       <div className="p-6">

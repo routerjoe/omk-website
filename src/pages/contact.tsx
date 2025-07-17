@@ -166,11 +166,8 @@ const Contact = () => {
 
             <div className="bg-plumeriaWhite p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-bold text-lavaBlack mb-4">Response Time</h3>
-              <p className="text-lavaBlack mb-2">
-                We strive to respond to all inquiries within 24-48 hours during business days.
-              </p>
               <p className="text-lavaBlack">
-                For urgent matters, please call our main office or visit us in person during office hours.
+                We strive to respond to all inquiries within 24-48 hours during business days.
               </p>
             </div>
           </div>

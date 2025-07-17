@@ -1,6 +1,6 @@
 import Layout from '@/components/Layout';
 import ProgramCard from '@/components/ui/ProgramCard';
-import { programs } from '@/data/programs';
+import { programs, programPillars } from '@/data/programs';
 import Link from 'next/link';
 
 const Programs = () => {
@@ -28,16 +28,16 @@ const Programs = () => {
         </div>
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <div className="text-center bg-lightSand p-6 rounded-lg shadow-md border-l-4 border-palmGreen">
-            <h3 className="text-xl font-bold text-palmGreen mb-2">Education & Youth</h3>
-            <p className="text-lavaBlack">Building strong foundations for our keiki through cultural education and mentorship</p>
+            <h3 className="text-xl font-bold text-palmGreen mb-2">Empowerment Through Education & Opportunity</h3>
+            <p className="text-lavaBlack">Delivers workforce development, tech training, financial literacy, and scholarship access to build long-term self-sufficiency and economic mobility.</p>
           </div>
           <div className="text-center bg-lightSand p-6 rounded-lg shadow-md border-l-4 border-oceanBlue">
-            <h3 className="text-xl font-bold text-oceanBlue mb-2">Veteran Support</h3>
-            <p className="text-lavaBlack">Honoring our warriors with comprehensive support and community connection</p>
+            <h3 className="text-xl font-bold text-oceanBlue mb-2">Cultural Resilience & Veteran Support</h3>
+            <p className="text-lavaBlack">Preserves Native Hawaiian heritage through language and arts, while supporting veterans and their families through transition, healing, and community reintegration.</p>
           </div>
           <div className="text-center bg-lightSand p-6 rounded-lg shadow-md border-l-4 border-hibiscusRed">
-            <h3 className="text-xl font-bold text-hibiscusRed mb-2">Community Development</h3>
-            <p className="text-lavaBlack">Strengthening families and communities through economic empowerment</p>
+            <h3 className="text-xl font-bold text-hibiscusRed mb-2">Community Reinvestment & Technology Equity</h3>
+            <p className="text-lavaBlack">Invests in digital inclusion, infrastructure, and direct aid to uplift underserved communities and expand access to essential resources.</p>
           </div>
         </div>
       </section>

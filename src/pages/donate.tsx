@@ -60,7 +60,7 @@ const Donate = () => {
         <div className="grid md:grid-cols-2 gap-8">
           <div
             className="h-80 bg-cover bg-center rounded-lg shadow-lg"
-            style={{ backgroundImage: "url('/images/volcano-eruption.jpg')" }}
+            style={{ backgroundImage: "url('/images/volcano-lava.svg')" }}
           >
             <div className="h-full flex items-end">
               <div className="p-6">
@@ -71,7 +71,7 @@ const Donate = () => {
           </div>
           <div
             className="h-80 bg-cover bg-center rounded-lg shadow-lg"
-            style={{ backgroundImage: "url('/images/volcano-lava-flow.jpg')" }}
+            style={{ backgroundImage: "url('/images/volcano-flow.svg')" }}
           >
             <div className="h-full flex items-end">
               <div className="p-6">

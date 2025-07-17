@@ -4,13 +4,13 @@ import Link from 'next/link';
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-oceanBlue to-tropicalTeal text-plumeriaWhite">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Column 1: Logo and Mission */}
           <div className="md:col-span-2">
             <Logo variant="tagline" />
             <p className="mt-4 text-sm text-sandBeige">
-              Empowering Native Hawaiian families, veterans, and underserved communities through culturally grounded programs.
+              Ohana Mana Koa is a Native Hawaiian–owned and veteran-led 501(c)(3) nonprofit organization that empowers Native Hawaiian families, veterans, and underserved communities through culturally grounded programs focused on education, economic mobility, and self-determination.
             </p>
           </div>
 
@@ -38,7 +38,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="mt-8 border-t border-lightOcean pt-8 text-center text-sm text-lightSand">
+        <div className="mt-4 border-t border-lightOcean pt-4 text-center text-sm text-lightSand">
           <p>&copy; {new Date().getFullYear()} Ohana Mana Koa. All Rights Reserved.</p>
           <p className="mt-2">
             Ohana Mana Koa is a 501(c)(3) nonprofit organization. All donations are tax-deductible as allowed by law.

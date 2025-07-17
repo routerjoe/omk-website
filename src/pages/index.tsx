@@ -32,7 +32,7 @@ const Home = () => {
           <div className="bg-lightSand p-8 rounded-lg shadow-lg border-t-4 border-palmGreen">
             <h3 className="text-2xl font-bold text-palmGreen mb-4">Mission</h3>
             <p className="text-lavaBlack">
-              Empower Native Hawaiian families, veterans, and underserved communities through culturally grounded programs.
+              Ohana Mana Koa is a Native Hawaiian–owned and veteran-led 501(c)(3) nonprofit organization that empowers Native Hawaiian families, veterans, and underserved communities through culturally grounded programs focused on education, economic mobility, and self-determination.
             </p>
           </div>
           <div className="bg-lightSand p-8 rounded-lg shadow-lg border-t-4 border-oceanBlue">
