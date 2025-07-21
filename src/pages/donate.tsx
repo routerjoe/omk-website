@@ -45,7 +45,7 @@ const Donate = () => {
       {/* Hawaiian Volcano Scene */}
       <section
         className="h-48 bg-cover bg-center my-12 rounded-lg"
-        style={{ backgroundImage: "linear-gradient(rgba(13, 148, 136, 0.3), rgba(13, 148, 136, 0.3)), url('/images/AA83F234-2060-4483-8435-B0DD466EB5F7.jpeg')" }}
+        style={{ backgroundImage: "url('/images/valcano-lava.jpg')" }}
       ></section>
 
       {/* Volcano Images Section */}
@@ -60,7 +60,7 @@ const Donate = () => {
         <div className="grid md:grid-cols-2 gap-8">
           <div
             className="h-80 bg-cover bg-center rounded-lg shadow-lg"
-            style={{ backgroundImage: "url('/images/volcano-lava.svg')" }}
+            style={{ backgroundImage: "url('/images/valcano-1.jpeg')" }}
           >
             <div className="h-full flex items-end">
               <div className="p-6">
@@ -71,7 +71,7 @@ const Donate = () => {
           </div>
           <div
             className="h-80 bg-cover bg-center rounded-lg shadow-lg"
-            style={{ backgroundImage: "url('/images/volcano-flow.svg')" }}
+            style={{ backgroundImage: "url('/images/valcano-flow.jpeg')" }}
           >
             <div className="h-full flex items-end">
               <div className="p-6">
