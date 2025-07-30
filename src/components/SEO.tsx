@@ -24,6 +24,24 @@ const SEO = ({
 
   return (
     <Head>
+      {/* Google Analytics */}
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-XTG9XF7M8D"
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XTG9XF7M8D', {
+              page_title: '${fullTitle}',
+              page_location: '${fullCanonicalUrl}'
+            });
+          `,
+        }}
+      />
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />

@@ -2,6 +2,7 @@ import Layout from '@/components/Layout';
 import SEO from '@/components/SEO';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { trackFormSubmission } from '@/utils/analytics';
 
 const Contact = () => {
   const router = useRouter();
@@ -44,9 +45,15 @@ const Contact = () => {
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
       setSelectedProgram('');
+      
+      // Track successful form submission
+      trackFormSubmission('contact', true);
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
+      
+      // Track failed form submission
+      trackFormSubmission('contact', false);
     } finally {
       setIsSubmitting(false);
     }

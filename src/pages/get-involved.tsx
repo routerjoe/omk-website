@@ -1,6 +1,7 @@
 import Layout from '@/components/Layout';
 import SEO from '@/components/SEO';
 import { useState } from 'react';
+import { trackFormSubmission } from '@/utils/analytics';
 
 const GetInvolved = () => {
   const [volunteerForm, setVolunteerForm] = useState({
@@ -30,9 +31,15 @@ const GetInvolved = () => {
       console.log('Volunteer form submitted:', volunteerForm);
       setVolunteerStatus('success');
       setVolunteerForm({ name: '', email: '', message: '' });
+      
+      // Track successful volunteer form submission
+      trackFormSubmission('volunteer', true);
     } catch (error) {
       console.error('Volunteer form error:', error);
       setVolunteerStatus('error');
+      
+      // Track failed volunteer form submission
+      trackFormSubmission('volunteer', false);
     } finally {
       setIsSubmittingVolunteer(false);
     }
@@ -49,9 +56,15 @@ const GetInvolved = () => {
       console.log('Newsletter signup:', newsletterEmail);
       setNewsletterStatus('success');
       setNewsletterEmail('');
+      
+      // Track successful newsletter signup
+      trackFormSubmission('newsletter', true);
     } catch (error) {
       console.error('Newsletter signup error:', error);
       setNewsletterStatus('error');
+      
+      // Track failed newsletter signup
+      trackFormSubmission('newsletter', false);
     } finally {
       setIsSubmittingNewsletter(false);
     }

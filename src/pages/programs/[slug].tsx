@@ -1,13 +1,20 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { useEffect } from 'react';
 import Layout from '@/components/Layout';
 import Link from 'next/link';
 import { Program, programs } from '@/data/programs';
+import { trackProgramView } from '@/utils/analytics';
 
 interface ProgramDetailProps {
   program: Program;
 }
 
 const ProgramDetail = ({ program }: ProgramDetailProps) => {
+  // Track program page view
+  useEffect(() => {
+    trackProgramView(program.slug);
+  }, [program.slug]);
+
   // Use specific background for veteran program
   const heroBackground = program.slug === 'veteran-empowerment-transition-support'
     ? '/images/perl-harbor.jpg'
