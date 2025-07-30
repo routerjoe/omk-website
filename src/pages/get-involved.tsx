@@ -1,8 +1,69 @@
 import Layout from '@/components/Layout';
+import SEO from '@/components/SEO';
+import { useState } from 'react';
 
 const GetInvolved = () => {
+  const [volunteerForm, setVolunteerForm] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [isSubmittingVolunteer, setIsSubmittingVolunteer] = useState(false);
+  const [isSubmittingNewsletter, setIsSubmittingNewsletter] = useState(false);
+  const [volunteerStatus, setVolunteerStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleVolunteerChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setVolunteerForm(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleVolunteerSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmittingVolunteer(true);
+    setVolunteerStatus('idle');
+
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      console.log('Volunteer form submitted:', volunteerForm);
+      setVolunteerStatus('success');
+      setVolunteerForm({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Volunteer form error:', error);
+      setVolunteerStatus('error');
+    } finally {
+      setIsSubmittingVolunteer(false);
+    }
+  };
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmittingNewsletter(true);
+    setNewsletterStatus('idle');
+
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      console.log('Newsletter signup:', newsletterEmail);
+      setNewsletterStatus('success');
+      setNewsletterEmail('');
+    } catch (error) {
+      console.error('Newsletter signup error:', error);
+      setNewsletterStatus('error');
+    } finally {
+      setIsSubmittingNewsletter(false);
+    }
+  };
   return (
     <Layout>
+      <SEO
+        title="Get Involved - Volunteer and Partner with Us"
+        description="Join Ohana Mana Koa's mission by volunteering, partnering with us, or staying connected through our newsletter. There are many ways to support our Native Hawaiian community programs."
+        keywords="volunteer Hawaii, partner with nonprofit, Native Hawaiian volunteer opportunities, community involvement, newsletter signup"
+        canonicalUrl="/get-involved"
+      />
       {/* Hero Section with Hawaiian Scenic Background */}
       <section
         className="relative text-center py-20 bg-cover bg-center rounded-lg overflow-hidden"
@@ -59,21 +120,60 @@ const GetInvolved = () => {
           {/* Volunteer Interest Form */}
           <div className="bg-plumeriaWhite p-8 rounded-lg shadow-lg border-l-4 border-palmGreen">
             <h2 className="text-3xl font-bold text-palmGreen mb-6">Volunteer With Us</h2>
-            <form>
+            <form onSubmit={handleVolunteerSubmit}>
+              {volunteerStatus === 'success' && (
+                <div className="bg-palmGreen text-plumeriaWhite p-4 rounded-md mb-4">
+                  <p className="font-semibold">Thank you for your interest!</p>
+                  <p className="text-sm">We'll contact you soon about volunteer opportunities.</p>
+                </div>
+              )}
+              {volunteerStatus === 'error' && (
+                <div className="bg-hibiscusRed text-plumeriaWhite p-4 rounded-md mb-4">
+                  <p className="font-semibold">Error submitting form</p>
+                  <p className="text-sm">Please try again or contact us directly.</p>
+                </div>
+              )}
               <div className="mb-4">
                 <label htmlFor="name" className="block text-lavaBlack font-semibold mb-2">Full Name</label>
-                <input type="text" id="name" name="name" className="w-full px-4 py-2 border border-sandBeige rounded-md focus:outline-none focus:ring-2 focus:ring-palmGreen focus:border-palmGreen" />
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={volunteerForm.name}
+                  onChange={handleVolunteerChange}
+                  required
+                  className="w-full px-4 py-2 border border-sandBeige rounded-md focus:outline-none focus:ring-2 focus:ring-palmGreen focus:border-palmGreen"
+                />
               </div>
               <div className="mb-4">
                 <label htmlFor="email" className="block text-lavaBlack font-semibold mb-2">Email Address</label>
-                <input type="email" id="email" name="email" className="w-full px-4 py-2 border border-sandBeige rounded-md focus:outline-none focus:ring-2 focus:ring-palmGreen focus:border-palmGreen" />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={volunteerForm.email}
+                  onChange={handleVolunteerChange}
+                  required
+                  className="w-full px-4 py-2 border border-sandBeige rounded-md focus:outline-none focus:ring-2 focus:ring-palmGreen focus:border-palmGreen"
+                />
               </div>
               <div className="mb-6">
                 <label htmlFor="message" className="block text-lavaBlack font-semibold mb-2">Message</label>
-                <textarea id="message" name="message" rows={4} className="w-full px-4 py-2 border border-sandBeige rounded-md focus:outline-none focus:ring-2 focus:ring-palmGreen focus:border-palmGreen"></textarea>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={volunteerForm.message}
+                  onChange={handleVolunteerChange}
+                  rows={4}
+                  className="w-full px-4 py-2 border border-sandBeige rounded-md focus:outline-none focus:ring-2 focus:ring-palmGreen focus:border-palmGreen"
+                ></textarea>
               </div>
-              <button type="submit" className="w-full bg-palmGreen text-plumeriaWhite px-6 py-3 rounded-md font-semibold hover:bg-lightPalm transition-colors shadow-md">
-                Submit Interest
+              <button
+                type="submit"
+                disabled={isSubmittingVolunteer}
+                className="w-full bg-palmGreen text-plumeriaWhite px-6 py-3 rounded-md font-semibold hover:bg-lightPalm transition-colors shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmittingVolunteer ? 'Submitting...' : 'Submit Interest'}
               </button>
             </form>
           </div>
@@ -83,10 +183,31 @@ const GetInvolved = () => {
             <div className="bg-plumeriaWhite p-8 rounded-lg shadow-lg border-l-4 border-oceanBlue">
               <h2 className="text-3xl font-bold text-oceanBlue mb-6">Stay Connected</h2>
               <p className="text-lavaBlack mb-4">Sign up for our newsletter to receive updates on our programs, events, and impact.</p>
-              <form className="flex">
-                <input type="email" placeholder="Enter your email" className="w-full px-4 py-2 border border-sandBeige rounded-l-md focus:outline-none focus:ring-2 focus:ring-oceanBlue focus:border-oceanBlue" />
-                <button type="submit" className="bg-oceanBlue text-plumeriaWhite px-6 py-2 rounded-r-md font-semibold hover:bg-lightOcean transition-colors">
-                  Sign Up
+              {newsletterStatus === 'success' && (
+                <div className="bg-palmGreen text-plumeriaWhite p-3 rounded-md mb-4">
+                  <p className="text-sm">Successfully subscribed to our newsletter!</p>
+                </div>
+              )}
+              {newsletterStatus === 'error' && (
+                <div className="bg-hibiscusRed text-plumeriaWhite p-3 rounded-md mb-4">
+                  <p className="text-sm">Error subscribing. Please try again.</p>
+                </div>
+              )}
+              <form onSubmit={handleNewsletterSubmit} className="flex">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  required
+                  className="w-full px-4 py-2 border border-sandBeige rounded-l-md focus:outline-none focus:ring-2 focus:ring-oceanBlue focus:border-oceanBlue"
+                />
+                <button
+                  type="submit"
+                  disabled={isSubmittingNewsletter}
+                  className="bg-oceanBlue text-plumeriaWhite px-6 py-2 rounded-r-md font-semibold hover:bg-lightOcean transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmittingNewsletter ? 'Signing Up...' : 'Sign Up'}
                 </button>
               </form>
             </div>

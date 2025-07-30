@@ -1,8 +1,15 @@
 import Layout from '@/components/Layout';
+import SEO from '@/components/SEO';
 
 const Donate = () => {
   return (
     <Layout>
+      <SEO
+        title="Donate - Support Our Mission"
+        description="Support Ohana Mana Koa's mission to empower Native Hawaiian families and veterans. Your tax-deductible donation helps fund culturally grounded programs and community initiatives."
+        keywords="donate to Ohana Mana Koa, Native Hawaiian nonprofit donation, support veterans Hawaii, tax-deductible donation, community support"
+        canonicalUrl="/donate"
+      />
       {/* Hero Section with Hawaiian Scenic Background */}
       <section
         className="relative text-center py-20 bg-cover bg-center rounded-lg overflow-hidden"

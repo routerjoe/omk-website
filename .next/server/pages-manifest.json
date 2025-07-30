@@ -1,8 +1,1 @@
-{
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/programs/[slug]": "pages/programs/[slug].js",
-  "/contact": "pages/contact.js",
-  "/donate": "pages/donate.js"
-}
+{"/_app":"pages/_app.js","/_document":"pages/_document.js","/404":"pages/404.html","/about":"pages/about.html","/apply":"pages/apply.html","/contact":"pages/contact.html","/donate":"pages/donate.html","/get-involved":"pages/get-involved.html","/":"pages/index.html","/programs":"pages/programs.html","/public-documents":"pages/public-documents.html","/_error":"pages/_error.js","/programs/[slug]":"pages/programs/[slug].js"}

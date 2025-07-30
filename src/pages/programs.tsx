@@ -1,4 +1,5 @@
 import Layout from '@/components/Layout';
+import SEO from '@/components/SEO';
 import ProgramCard from '@/components/ui/ProgramCard';
 import { programs, programPillars } from '@/data/programs';
 import Link from 'next/link';
@@ -6,6 +7,12 @@ import Link from 'next/link';
 const Programs = () => {
   return (
     <Layout>
+      <SEO
+        title="Our Programs - Empowering Communities"
+        description="Explore Ohana Mana Koa's culturally grounded programs including workforce development, veteran support, educational advancement, financial literacy, and community technology equity initiatives."
+        keywords="Native Hawaiian programs, workforce development, veteran support, cultural education, financial literacy, technology equity, community programs Hawaii"
+        canonicalUrl="/programs"
+      />
       {/* Hero Section with Scenic Background */}
       <section
         className="relative text-center py-20 bg-cover bg-center rounded-lg overflow-hidden"

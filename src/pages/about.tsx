@@ -1,10 +1,17 @@
 import Layout from '@/components/Layout';
+import SEO from '@/components/SEO';
 import BoardCard from '@/components/ui/BoardCard';
 import { boardMembers } from '@/data/board';
 
 const About = () => {
   return (
     <Layout>
+      <SEO
+        title="About Us - Our Story and Mission"
+        description="Learn about Ohana Mana Koa's story, mission, and leadership. We are a Native Hawaiian-owned and veteran-led nonprofit organization based in Kailua-Kona, Hawaii, dedicated to empowering communities through culturally grounded programs."
+        keywords="about Ohana Mana Koa, Native Hawaiian organization, veteran-led nonprofit, Hawaii nonprofit, cultural values, kuleana, aloha, pono, board members"
+        canonicalUrl="/about"
+      />
       {/* Hero Section */}
       <section
         className="relative text-center py-20 bg-cover bg-center rounded-lg"

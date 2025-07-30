@@ -1,9 +1,16 @@
 import Layout from '@/components/Layout';
+import SEO from '@/components/SEO';
 import Link from 'next/link';
 
 const Home = () => {
   return (
     <Layout>
+      <SEO
+        title="Ohana Mana Koa - Empowering Native Hawaiian Communities"
+        description="Ohana Mana Koa is a Native Hawaiian-owned and veteran-led 501(c)(3) nonprofit organization that empowers Native Hawaiian families, veterans, and underserved communities through culturally grounded programs."
+        keywords="Native Hawaiian nonprofit, veteran support, community empowerment, cultural preservation, Hawaii, ohana, mana koa, education programs, economic mobility"
+        canonicalUrl="/"
+      />
       {/* Hero Section */}
       <section
         className="relative bg-cover bg-center h-[70vh] flex items-center text-white rounded-lg overflow-hidden"

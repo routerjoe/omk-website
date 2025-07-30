@@ -1,19 +1,65 @@
 import Layout from '@/components/Layout';
+import SEO from '@/components/SEO';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 const Contact = () => {
   const router = useRouter();
   const [selectedProgram, setSelectedProgram] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   useEffect(() => {
     if (router.query.program) {
       setSelectedProgram(router.query.program as string);
+      setFormData(prev => ({ ...prev, subject: router.query.program as string }));
     }
   }, [router.query.program]);
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (name === 'subject') {
+      setSelectedProgram(value);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // For now, we'll simulate form submission
+      // In production, this would send to your backend API or email service
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
+      
+      console.log('Form submitted:', formData);
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setSelectedProgram('');
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <Layout>
+      <SEO
+        title="Contact Us - Get in Touch"
+        description="Contact Ohana Mana Koa for program applications, volunteer opportunities, partnerships, or general inquiries. We're here to help and respond within 24-48 hours."
+        keywords="contact Ohana Mana Koa, program applications, volunteer opportunities, partnerships, sponsorship, Hawaii nonprofit contact"
+        canonicalUrl="/contact"
+      />
       {/* Hero Section */}
       <section
         className="relative text-center py-20 bg-cover bg-center rounded-lg overflow-hidden"
@@ -39,13 +85,27 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="bg-lightSand p-8 rounded-lg shadow-md">
             <h3 className="text-2xl font-bold text-lavaBlack mb-6">Send us a Message</h3>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {submitStatus === 'success' && (
+                <div className="bg-palmGreen text-plumeriaWhite p-4 rounded-md">
+                  <p className="font-semibold">Message sent successfully!</p>
+                  <p className="text-sm">We'll get back to you within 24-48 hours.</p>
+                </div>
+              )}
+              {submitStatus === 'error' && (
+                <div className="bg-hibiscusRed text-plumeriaWhite p-4 rounded-md">
+                  <p className="font-semibold">Error sending message</p>
+                  <p className="text-sm">Please try again or contact us directly at info@ohanamanakoa.org</p>
+                </div>
+              )}
               <div>
                 <label htmlFor="name" className="block text-lavaBlack font-semibold mb-2">Name *</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 border border-sandBeige rounded-md focus:outline-none focus:ring-2 focus:ring-oceanBlue"
                 />
@@ -56,6 +116,8 @@ const Contact = () => {
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 border border-sandBeige rounded-md focus:outline-none focus:ring-2 focus:ring-oceanBlue"
                 />
@@ -65,8 +127,9 @@ const Contact = () => {
                 <select
                   id="subject"
                   name="subject"
-                  value={selectedProgram}
-                  onChange={(e) => setSelectedProgram(e.target.value)}
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  required
                   className="w-full px-4 py-3 border border-sandBeige rounded-md focus:outline-none focus:ring-2 focus:ring-oceanBlue"
                 >
                   <option value="">Select a topic...</option>
@@ -84,6 +147,8 @@ const Contact = () => {
                 <textarea
                   id="message"
                   name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   rows={5}
                   required
                   className="w-full px-4 py-3 border border-sandBeige rounded-md focus:outline-none focus:ring-2 focus:ring-oceanBlue"
@@ -92,9 +157,10 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-oceanBlue text-plumeriaWhite py-3 rounded-md font-semibold hover:bg-lightOcean transition-colors"
+                disabled={isSubmitting}
+                className="w-full bg-oceanBlue text-plumeriaWhite py-3 rounded-md font-semibold hover:bg-lightOcean transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
